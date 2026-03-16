@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "expo start -c --localhost",
+    "build": "expo export --platform web",
     "reset-project": "node ./scripts/reset-project.js",
     "android": "expo start --android --tunnel",
     "ios": "expo start --ios --tunnel",
