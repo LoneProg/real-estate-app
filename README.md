@@ -1,50 +1,182 @@
-# Welcome to your Expo app 👋
+# Real Estate App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A modern cross-platform mobile application for browsing and discovering real estate properties. Built with React Native and Expo, this app provides a seamless experience for users to explore properties, search listings, view details, and manage their profile.
 
-## Get started
+## Overview
 
-1. Install dependencies
+The Real Estate App is designed to help users discover, explore, and connect with real estate properties. The application runs on iOS, Android, and the web, offering consistent functionality across all platforms. Users can browse featured properties, search for listings, and view detailed information about properties they're interested in.
+
+## Features
+
+- **Browse Properties**: Explore a curated list of real estate properties with beautiful card-based layouts
+- **Search Functionality**: Find properties quickly using search filters
+- **Property Details**: View comprehensive information about individual properties
+- **User Authentication**: Secure login using Google OAuth via Appwrite
+- **User Profile**: Manage your profile and preferences
+- **Responsive Design**: Optimized interface for phones, tablets, and web browsers
+- **Smooth Animations**: Parallax scrolling and haptic feedback for enhanced user experience
+- **Dark Mode Support**: Automatic light and dark theme support
+
+## Technology Stack
+
+- **Framework**: React Native with Expo
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS with NativeWind
+- **Navigation**: React Navigation (bottom tab navigation)
+- **Backend**: Appwrite
+- **Authentication**: Google OAuth
+- **State Management**: Custom hooks with React Context
+
+## Installation
+
+1. Clone the repository and navigate to the project directory
+
+2. Install dependencies
 
    ```bash
    npm install
    ```
 
-2. Start the app
-
+3. Create an environment file with your Appwrite configuration
    ```bash
-   npx expo start
+   # .env.local
+   EXPO_PUBLIC_APPWRITE_ENDPOINT=your_appwrite_endpoint
+   EXPO_PUBLIC_APPWRITE_PROJECT_ID=your_project_id
+   EXPO_PUBLIC_APPWRITE_PROJECT_NAME=your_project_name
    ```
 
-In the output, you'll find options to open the app in a
+## Getting Started
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+Start the development server:
 
 ```bash
-npm run reset-project
+npm start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+This will open the Expo CLI with options to launch the app:
 
-## Learn more
+- **iOS Simulator**: Press `i` (requires Xcode)
+- **Android Emulator**: Press `a` (requires Android Studio)
+- **Web Browser**: Press `w`
+- **Expo Go**: Scan the QR code with the Expo Go app on your phone
 
-To learn more about developing your project with Expo, look at the following resources:
+## Project Structure
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```
+app/
+├── _layout.tsx              # Root layout and navigation setup
+├── sign-in.tsx              # Authentication screen
+└── (root)/
+    ├── (tabs)/              # Tab-based navigation
+    │   ├── explore.tsx      # Browse and explore properties
+    │   ├── index.tsx        # Home screen
+    │   └── profile.tsx      # User profile screen
+    └── properties/
+        └── [id].tsx         # Individual property detail page
 
-## Join the community
+components/
+├── Cards.tsx                # Featured and regular property cards
+├── Search.tsx               # Search bar component
+├── parallax-scroll-view.tsx # Parallax effect wrapper
+└── ui/                      # Reusable UI components
 
-Join our community of developers creating universal apps.
+lib/
+├── appwrite.ts              # Appwrite client configuration
+├── useAppwrite.ts          # Custom hook for Appwrite integration
+└── globalProvider.tsx       # Global context provider
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+constants/
+├── icons.ts                 # Icon definitions
+├── images.ts                # Image assets
+└── theme.ts                 # Theme configuration
+
+hooks/
+├── use-color-scheme.ts      # Color scheme detection hook
+└── use-theme-color.ts       # Theme color hook
+```
+
+## Available Scripts
+
+- `npm start` - Start the development server
+- `npm run android` - Launch on Android emulator
+- `npm run ios` - Launch on iOS simulator
+- `npm run web` - Launch in web browser
+- `npm run lint` - Run linter to check code quality
+- `npm run reset-project` - Reset to a blank project structure
+
+## Development
+
+The app uses file-based routing with Expo Router. Create screens by adding files to the `app` directory with automatic route generation.
+
+### Styling
+
+The project uses NativeWind for Tailwind CSS support in React Native. Use standard Tailwind utility classes in your components.
+
+### Authentication
+
+Google OAuth authentication is configured through Appwrite. Users can sign in securely and their session is managed automatically.
+
+## Building for Production
+
+### iOS
+
+```bash
+npm run ios
+# Then create a production build through Expo's build service
+```
+
+### Android
+
+```bash
+npm run android
+# Then create a production build through Expo's build service
+```
+
+### Web
+
+```bash
+npm run web
+# Build static files for deployment
+```
+
+## Browser Support
+
+- iOS 13+
+- Android 6+
+- Modern web browsers (Chrome, Firefox, Safari, Edge)
+
+## Dependencies
+
+Key dependencies include:
+
+- `expo` - Framework and tools
+- `react-native` - Cross-platform mobile framework
+- `expo-router` - File-based routing
+- `react-navigation` - Navigation library
+- `react-native-appwrite` - Appwrite SDK
+- `nativewind` - Tailwind CSS for React Native
+- `expo-haptics` - Haptic feedback
+- `react-native-reanimated` - Animation library
+
+## Contributing
+
+When contributing to the project:
+
+1. Follow the existing code structure and naming conventions
+2. Use TypeScript for all new code
+3. Keep components small and focused
+4. Use Tailwind utility classes for styling
+5. Write clear commit messages
+
+## Troubleshooting
+
+If you encounter issues:
+
+- Clear cache: `npx expo start -c`
+- Reinstall dependencies: `rm -rf node_modules package-lock.json && npm install`
+- Check Appwrite configuration in environment variables
+- Ensure all required Expo modules are installed: `expo prebuild`
+
+## License
+
+This project is proprietary and all rights are reserved.
