@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "real-estate-app",
+    "name": "Real Estate App",
     "slug": "real-estate-app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -23,6 +23,7 @@
     },
     "web": {
       "bundler": "metro",
+      "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
@@ -40,20 +41,28 @@
         }
       ],
       [
-        "expo-font",{
-          "fonts": ["./assets/fonts/Rubik-Bold.ttf",
-                    "./assets/fonts/Rubik-Medium.ttf",
-                    "./assets/fonts/Rubik-Light.ttf",
-                    "./assets/fonts/Rubik-ExtraBold.ttf",
-                    "./assets/fonts/Rubik-Regular.ttf",
-                    "./assets/fonts/Rubik-SemiBold.ttf"
-                  ]
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/Rubik-Bold.ttf",
+            "./assets/fonts/Rubik-Medium.ttf",
+            "./assets/fonts/Rubik-Light.ttf",
+            "./assets/fonts/Rubik-ExtraBold.ttf",
+            "./assets/fonts/Rubik-Regular.ttf",
+            "./assets/fonts/Rubik-SemiBold.ttf"
+          ]
         }
       ]
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "f7b733c3-b21d-4632-be53-d5dc78bf45da"
+      }
     }
   }
 }
